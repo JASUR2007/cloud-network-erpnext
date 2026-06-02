@@ -1,6 +1,6 @@
 # AWS Deployment Guide
 
-Деплой Clothing System + CRM на AWS (ECS Fargate + RDS + ElastiCache + S3 + CloudFront).
+Деплой Clothing System + CRM на AWS (ECS Fargate + RDS + ElastiCache + S3 + CloudFront).23
 
 ## Архитектура
 
@@ -10,7 +10,7 @@
                     └──────┬──────┘
                            │
             ┌──────────────┼──────────────┐
-            
+
             ▼              ▼              ▼
      ┌──────────┐   ┌──────────┐   ┌──────────┐
      │  S3 (CRM)│   │   ALB    │   │   S3     │
