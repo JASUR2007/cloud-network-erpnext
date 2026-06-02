@@ -110,9 +110,10 @@ if [ ! -f "$SITE_DIR/site_config.json" ]; then
     bench use "$SITE_NAME"
 fi
 
-bench --site "$SITE_NAME" set-config app_name "Clothing ERP"
-bench --site "$SITE_NAME" execute frappe.client.set_value --args '["Website Settings", "Website Settings", "app_name", "Clothing ERP"]'
 bench build
+
+bench --site "$SITE_NAME" set-config app_name "Clothing ERP"
+bench --site "$SITE_NAME" execute frappe.client.set_value --args '["Website Settings", "Website Settings", "app_name", "Clothing ERP"]' || echo "Website Settings not ready yet — skipping"
 bench --site "$SITE_NAME" clear-cache
 
 exec bench start

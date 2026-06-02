@@ -23,7 +23,7 @@ add_to_apps_screen = [
 develop_version = "17.x.x-develop"
 
 app_include_js = "erpnext.bundle.js"
-app_include_css = "erpnext.bundle.css"
+app_include_css = ["erpnext.bundle.css", "css/sidebar-theme.css"]
 web_include_css = "erpnext-web.bundle.css"
 email_css = "email_erpnext.bundle.css"
 

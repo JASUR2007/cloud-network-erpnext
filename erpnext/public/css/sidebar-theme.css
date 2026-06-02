@@ -1,0 +1,148 @@
+/* === Sidebar & Desk UI Color Improvements === */
+
+/* ---- Top Navbar ---- */
+.navbar,
+.navbar-default {
+	background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #1e3a5f 100%) !important;
+	border-bottom: 2px solid var(--primary);
+}
+.navbar .navbar-nav > li > a,
+.navbar .nav-link,
+.navbar .module-link {
+	color: rgba(255, 255, 255, 0.9) !important;
+	transition: background-color 0.2s;
+}
+.navbar .navbar-nav > li > a:hover,
+.navbar .nav-link:hover {
+	background-color: rgba(255, 255, 255, 0.12) !important;
+	color: #ffffff !important;
+}
+.navbar .navbar-brand {
+	color: #ffffff !important;
+	font-weight: 700;
+}
+
+/* ---- Main Desk Sidebar ---- */
+.standard-sidebar,
+.layout-side-section {
+	background: linear-gradient(180deg, #1b2a4a 0%, #243656 40%, #1b2a4a 100%) !important;
+	border-right: 1px solid rgba(255, 255, 255, 0.08);
+	min-height: 100vh;
+}
+
+.standard-sidebar .standard-sidebar-section .sidebar-label {
+	color: rgba(255, 255, 255, 0.55) !important;
+	font-weight: 600;
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	padding: 16px 16px 8px 16px;
+}
+
+.standard-sidebar .sidebar-menu .sidebar-menu-item,
+.layout-side-section .module-link {
+	border-radius: 8px;
+	margin: 2px 8px;
+	color: rgba(255, 255, 255, 0.8) !important;
+	transition: all 0.2s ease;
+}
+
+.standard-sidebar .sidebar-menu .sidebar-menu-item:hover,
+.layout-side-section .module-link:hover {
+	background: rgba(255, 255, 255, 0.1) !important;
+	color: #ffffff !important;
+}
+
+.standard-sidebar .sidebar-menu .sidebar-menu-item.active,
+.standard-sidebar .sidebar-menu .sidebar-menu-item.selected,
+.layout-side-section .module-link.active {
+	background: linear-gradient(135deg, var(--primary), #c0392b) !important;
+	color: #ffffff !important;
+	font-weight: 600;
+	box-shadow: 0 2px 8px rgba(231, 76, 60, 0.4);
+}
+
+.standard-sidebar .sidebar-menu .sidebar-menu-item a,
+.layout-side-section .module-link a {
+	color: inherit !important;
+}
+
+.standard-sidebar .sidebar-footer {
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+	background: rgba(0, 0, 0, 0.2);
+}
+
+/* ---- Section Divider in Sidebar ---- */
+.standard-sidebar .standard-sidebar-section:not(:first-child):before {
+	content: "";
+	display: block;
+	margin: 8px 16px;
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ---- App Icon / Logo ---- */
+.app-icon-svg {
+	background: linear-gradient(135deg, var(--primary), #c0392b) !important;
+	box-shadow: 0 3px 12px rgba(231, 76, 60, 0.35) !important;
+}
+
+/* ---- Form Sidebar (right panel on BOM form etc.) ---- */
+.form-sidebar,
+.form-sidebar-section {
+	background: linear-gradient(180deg, #f8f9fc 0%, #eef1f7 50%, #f8f9fc 100%) !important;
+	border-left: 1px solid var(--border-color);
+	padding: 12px !important;
+}
+
+.form-sidebar .form-sidebar-heading,
+.form-sidebar-section .form-sidebar-label {
+	color: #2d5a87 !important;
+	font-weight: 700;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	border-bottom: 2px solid var(--primary);
+	padding-bottom: 6px;
+	margin-bottom: 8px;
+}
+
+.form-sidebar .form-sidebar-items .form-sidebar-item {
+	padding: 6px 8px;
+	border-radius: 4px;
+	margin-bottom: 2px;
+	transition: background-color 0.15s;
+}
+
+.form-sidebar .form-sidebar-items .form-sidebar-item:hover {
+	background-color: rgba(231, 76, 60, 0.06);
+}
+
+.form-sidebar .form-sidebar-items .form-sidebar-item a {
+	color: #2c3e50;
+	font-weight: 500;
+}
+
+/* ---- List View Sidebar ---- */
+.list-sidebar {
+	background: linear-gradient(180deg, #f8f9fc 0%, #eef1f7 100%) !important;
+	border-right: 1px solid var(--border-color);
+}
+
+.list-sidebar .list-sidebar-heading {
+	color: #2d5a87 !important;
+	font-weight: 700;
+}
+
+/* ---- Workspace Module Cards ---- */
+.module-card-body {
+	border-radius: var(--border-radius-md);
+	border: 1px solid var(--border-color);
+	transition: all 0.2s ease;
+	background: var(--card-bg);
+}
+
+.module-card-body:hover {
+	border-color: var(--primary) !important;
+	box-shadow: 0 4px 16px rgba(231, 76, 60, 0.15);
+	transform: translateY(-1px);
+}
