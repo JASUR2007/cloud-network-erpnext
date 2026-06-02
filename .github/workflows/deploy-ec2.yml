@@ -30,21 +30,21 @@ jobs:
             git pull origin main
 
             echo "=== Stopping containers ==="
-            docker compose -f docker-compose.prod.yml down
+            docker compose down
 
             echo "=== Building images ==="
-            docker compose -f docker-compose.prod.yml build --no-cache
+            docker compose build --no-cache
 
             echo "=== Starting containers ==="
-            docker compose -f docker-compose.prod.yml up -d
+            docker compose up -d
 
             echo "=== Waiting for health checks ==="
             sleep 30
 
             echo "=== Container status ==="
-            docker compose -f docker-compose.prod.yml ps
+            docker compose ps
 
             echo "=== Checking erpnext logs ==="
-            docker compose -f docker-compose.prod.yml logs --tail=20 erpnext 2>&1 || true
+            docker compose logs --tail=20 erpnext 2>&1 || true
 
             echo "=== Deployment complete! ==="
