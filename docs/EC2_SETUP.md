@@ -30,8 +30,8 @@ sudo apt install -y docker-compose-v2
 ## 3. Клонирование репозитория
 
 ```bash
-git clone https://github.com/<YOUR_ORG>/erpnext.git ~/erpnext
-cd ~/erpnext
+git clone https://github.com/<YOUR_ORG>/erpnext.git ~/cloud-network-erpnext
+cd ~/cloud-network-erpnext
 ```
 
 ## 4. DuckDNS + SSL
@@ -67,7 +67,7 @@ docker compose -f docker-compose.prod.yml logs -f erpnext
 | `EC2_USERNAME` | `ubuntu` |
 | `EC2_SSH_PRIVATE_KEY` | Содержимое `.pem` файла (cat key.pem) |
 | `EC2_SSH_PORT` | `22` (опционально) |
-| `EC2_REPO_DIR` | `/home/ubuntu/erpnext` (опционально) |
+| `EC2_REPO_DIR` | `/home/ubuntu/cloud-network-erpnext` |
 
 ### Как вставить PRIVATE KEY:
 
@@ -85,7 +85,7 @@ cat ~/.ssh/your-key.pem
 
 ```bash
 ssh -i key.pem ubuntu@<EC2_IP>
-cd ~/erpnext
+cd ~/cloud-network-erpnext
 git pull origin main
 docker compose -f docker-compose.prod.yml up -d --build
 ```

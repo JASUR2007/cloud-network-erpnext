@@ -14,16 +14,16 @@ jobs:
 
     steps:
       - name: Deploy via SSH
-        uses: appleboy/ssh-action@v2
+        uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
-          port: ${{ secrets.EC2_SSH_PORT || 22 }}
+          port: 22
           script: |
             set -e
 
-            REPO_DIR="${{ secrets.EC2_REPO_DIR || '/home/ubuntu/erpnext' }}"
+            REPO_DIR="/home/ubuntu/cloud-network-erpnext"
             cd "$REPO_DIR"
 
             echo "=== Pulling latest changes ==="
