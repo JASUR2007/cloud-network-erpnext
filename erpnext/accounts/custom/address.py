@@ -5,7 +5,7 @@ from frappe.contacts.doctype.address.address import (
 	get_address_display,
 	get_address_templates,
 )
-
+# 21
 
 class ERPNextAddress(Address):
 	def validate(self):
