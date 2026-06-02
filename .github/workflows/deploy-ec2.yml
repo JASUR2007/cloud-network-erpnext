@@ -1,0 +1,50 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches: [main, master]
+    paths-ignore:
+      - "**.md"
+      - ".github/**"
+
+jobs:
+  deploy:
+    name: Deploy to EC2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v2
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+          port: ${{ secrets.EC2_SSH_PORT || 22 }}
+          script: |
+            set -e
+
+            REPO_DIR="${{ secrets.EC2_REPO_DIR || '/home/ubuntu/erpnext' }}"
+            cd "$REPO_DIR"
+
+            echo "=== Pulling latest changes ==="
+            git pull origin main
+
+            echo "=== Stopping containers ==="
+            docker compose -f docker-compose.prod.yml down
+
+            echo "=== Building images ==="
+            docker compose -f docker-compose.prod.yml build --no-cache
+
+            echo "=== Starting containers ==="
+            docker compose -f docker-compose.prod.yml up -d
+
+            echo "=== Waiting for health checks ==="
+            sleep 30
+
+            echo "=== Container status ==="
+            docker compose -f docker-compose.prod.yml ps
+
+            echo "=== Checking erpnext logs ==="
+            docker compose -f docker-compose.prod.yml logs --tail=20 erpnext 2>&1 || true
+
+            echo "=== Deployment complete! ==="

@@ -1,0 +1,369 @@
+/* ======================================================
+   Clothing System — Modern Dashboard Theme
+   Style: Stripe / Notion / Linear inspired
+   ====================================================== */
+
+/* ---- Core Dashboard Layout ---- */
+body[data-route*="desk"] .layout-main-section,
+body[data-route*="workspace"] .layout-main-section {
+    background: #f3f4f6 !important;
+    padding: 24px !important;
+}
+
+/* ---- Page Headings ---- */
+body[data-route*="desk"] .page-head,
+body[data-route*="workspace"] .page-head {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+body[data-route*="desk"] .page-head .title-text,
+body[data-route*="workspace"] .page-head .title-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111827;
+    letter-spacing: -0.03em;
+}
+
+/* ---- KPI Cards Grid ---- */
+.dashboard-list-item,
+.module-card,
+.widget {
+    background: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 12px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+    transition: all 0.2s ease !important;
+    padding: 20px !important;
+    margin-bottom: 12px;
+}
+
+.dashboard-list-item:hover,
+.module-card:hover,
+.widget:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+    border-color: #d1d5db !important;
+    transform: translateY(-1px);
+}
+
+/* ---- KPI Numbers ---- */
+.dashboard-list-item .value,
+.widget .kpi-value,
+.kpi-number {
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+    letter-spacing: -0.03em !important;
+    line-height: 1.2 !important;
+}
+
+/* ---- KPI Labels ---- */
+.dashboard-list-item .label,
+.widget .kpi-label,
+.kpi-title {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: #6b7280 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px !important;
+    margin-top: 4px;
+}
+
+/* ---- KPI Card Colors ---- */
+.dashboard-list-item.kpi-revenue,
+.widget[data-chart-type*="revenue"] {
+    border-left: 4px solid #059669 !important;
+}
+.dashboard-list-item.kpi-orders,
+.widget[data-chart-type*="orders"] {
+    border-left: 4px solid #6366f1 !important;
+}
+.dashboard-list-item.kpi-customers,
+.widget[data-chart-type*="customers"] {
+    border-left: 4px solid #d97706 !important;
+}
+.dashboard-list-item.kpi-inventory,
+.widget[data-chart-type*="inventory"] {
+    border-left: 4px solid #0891b2 !important;
+}
+
+/* ---- Workspace Module Cards ---- */
+.module-card-body {
+    background: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 10px !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+    transition: all 0.2s ease !important;
+    padding: 16px !important;
+}
+
+.module-card-body:hover {
+    border-color: #c0392b !important;
+    box-shadow: 0 4px 20px rgba(192, 57, 43, 0.12) !important;
+    transform: translateY(-2px);
+}
+
+.module-card-body .module-card-title {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: #111827 !important;
+}
+
+.module-card-body .module-card-description {
+    font-size: 12px !important;
+    color: #6b7280 !important;
+    line-height: 1.5;
+}
+
+/* ---- Charts Area ---- */
+[data-chart-type],
+.chart-container,
+.report-chart {
+    background: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+    margin-bottom: 16px;
+}
+
+/* ---- Tables ---- */
+.form-grid,
+.dt-table,
+table.table {
+    border-radius: 10px !important;
+    overflow: hidden;
+    border: 1px solid #e5e7eb !important;
+    background: #ffffff !important;
+}
+
+.form-grid thead th,
+.dt-table thead th,
+table.table thead th {
+    background: #f9fafb !important;
+    color: #374151 !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 10px 12px !important;
+    border-bottom: 1px solid #e5e7eb !important;
+}
+
+.form-grid tbody td,
+.dt-table tbody td,
+table.table tbody td {
+    padding: 10px 12px !important;
+    font-size: 13px !important;
+    color: #374151;
+    border-bottom: 1px solid #f3f4f6 !important;
+}
+
+.form-grid tbody tr:hover,
+.dt-table tbody tr:hover,
+table.table tbody tr:hover {
+    background: #f9fafb !important;
+}
+
+/* ---- Buttons ---- */
+.btn-primary {
+    background: #c0392b !important;
+    border-color: #c0392b !important;
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    padding: 7px 16px !important;
+    letter-spacing: -0.01em;
+    transition: all 0.15s !important;
+}
+
+.btn-primary:hover {
+    background: #a93226 !important;
+    border-color: #a93226 !important;
+    box-shadow: 0 2px 8px rgba(192, 57, 43, 0.25);
+}
+
+.btn-secondary,
+.btn-default {
+    background: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+    color: #374151 !important;
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    padding: 7px 16px !important;
+    transition: all 0.15s !important;
+}
+
+.btn-secondary:hover,
+.btn-default:hover {
+    background: #f9fafb !important;
+    border-color: #9ca3af !important;
+}
+
+/* ---- Input Fields ---- */
+input.form-control,
+select.form-control,
+textarea.form-control {
+    border: 1px solid #d1d5db !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    padding: 8px 12px !important;
+    color: #111827 !important;
+    transition: border-color 0.15s, box-shadow 0.15s !important;
+}
+
+input.form-control:focus,
+select.form-control:focus,
+textarea.form-control:focus {
+    border-color: #c0392b !important;
+    box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.1) !important;
+    outline: none !important;
+}
+
+/* ---- Badges / Tags ---- */
+.badge,
+.label,
+.indicator-pill {
+    border-radius: 6px !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    padding: 3px 8px !important;
+    letter-spacing: 0.3px;
+}
+
+.indicator-pill.green,
+.badge-success {
+    background: #ecfdf5 !important;
+    color: #059669 !important;
+    border: 1px solid #a7f3d0 !important;
+}
+
+.indicator-pill.red,
+.badge-danger {
+    background: #fef2f2 !important;
+    color: #dc2626 !important;
+    border: 1px solid #fecaca !important;
+}
+
+.indicator-pill.orange,
+.badge-warning {
+    background: #fffbeb !important;
+    color: #d97706 !important;
+    border: 1px solid #fde68a !important;
+}
+
+.indicator-pill.blue,
+.badge-info {
+    background: #eff6ff !important;
+    color: #2563eb !important;
+    border: 1px solid #bfdbfe !important;
+}
+
+/* ---- Tabs ---- */
+.nav-tabs {
+    border-bottom: 2px solid #e5e7eb !important;
+    gap: 0;
+}
+
+.nav-tabs > li > a {
+    border: none !important;
+    color: #6b7280 !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    padding: 8px 16px !important;
+    border-bottom: 2px solid transparent !important;
+    margin-bottom: -2px;
+    transition: all 0.15s !important;
+}
+
+.nav-tabs > li > a:hover {
+    color: #374151 !important;
+    border-bottom-color: #d1d5db !important;
+}
+
+.nav-tabs > li.active > a {
+    color: #c0392b !important;
+    border-bottom-color: #c0392b !important;
+}
+
+/* ---- Form Sections ---- */
+.form-section-heading {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+    padding: 16px 0 8px !important;
+    letter-spacing: -0.02em;
+}
+
+/* ---- Frappe Control Labels ---- */
+.frappe-control .control-label,
+.form-group .control-label {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    color: #374151 !important;
+    margin-bottom: 4px !important;
+}
+
+/* ---- Modal / Dialog ---- */
+.modal-content {
+    border-radius: 14px !important;
+    border: none !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
+}
+
+.modal-header {
+    border-bottom: 1px solid #e5e7eb !important;
+    padding: 16px 20px !important;
+}
+
+.modal-header .modal-title {
+    font-size: 17px !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+}
+
+.modal-body {
+    padding: 20px !important;
+}
+
+.modal-footer {
+    border-top: 1px solid #e5e7eb !important;
+    padding: 12px 20px !important;
+}
+
+/* ---- List View Rows ---- */
+.list-row,
+.list-row-item {
+    border-bottom: 1px solid #f3f4f6 !important;
+    padding: 10px 16px !important;
+    font-size: 13px;
+    transition: background 0.1s;
+}
+
+.list-row:hover,
+.list-row-item:hover {
+    background: #f9fafb !important;
+}
+
+.list-row-head {
+    background: #f9fafb !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #6b7280;
+}
+
+/* ---- Smooth scroll ---- */
+.layout-main-section {
+    scroll-behavior: smooth;
+}
+
+/* ---- Sidebar active indicator in the dark sidebar ---- */
+.standard-sidebar .sidebar-menu-item.active .sidebar-item-icon,
+.standard-sidebar .sidebar-menu-item.selected .sidebar-item-icon {
+    color: #ffffff;
+}
