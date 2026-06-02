@@ -1,0 +1,26 @@
+{
+  "name": "erpnext",
+  "description": "Open Source ERP System powered by the Frappe Framework",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frappe/erpnext.git"
+  },
+  "homepage": "https://frappe.io/erpnext",
+  "author": "Frappe Technologies Pvt. Ltd.",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/frappe/erpnext/issues"
+  },
+  "scripts": {
+    "postinstall": "cd banking && npm install && cd ../crm && npm install",
+    "dev": "cd banking && npm run dev --",
+    "dev:crm": "cd crm && npm run dev --",
+    "build": "cd banking && npm run build && cd ../crm && npm run build",
+    "build:crm": "cd crm && npm run build",
+    "build:banking": "cd banking && npm run build"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "onscan.js": "^1.5.2"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "family": "erpnext-crm",
+  "taskRoleArn": "arn:aws:iam::<YOUR_ACCOUNT_ID>:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::<YOUR_ACCOUNT_ID>:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "2048",
+  "memory": "4096",
+  "containerDefinitions": [
+    {
+      "name": "erpnext",
+      "image": "<ECR_REGISTRY>/erpnext-crm/erpnext:latest",
+      "portMappings": [
+        {
+          "containerPort": 8000,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [
+        { "name": "DB_HOST", "value": "<RDS_ENDPOINT>" },
+        { "name": "DB_PORT", "value": "3306" },
+        { "name": "DB_PASSWORD", "value": "<DB_PASSWORD>" },
+        { "name": "REDIS_CACHE", "value": "<REDIS_ENDPOINT>" },
+        { "name": "REDIS_QUEUE", "value": "<REDIS_ENDPOINT>" },
+        { "name": "REDIS_SOCKETIO", "value": "<REDIS_ENDPOINT>" },
+        { "name": "SITE_NAME", "value": "erpnext.local" },
+        { "name": "ADMIN_PASSWORD", "value": "<ADMIN_PASSWORD>" }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/erpnext-crm",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "erpnext"
+        }
+      }
+    }
+  ]
+}
