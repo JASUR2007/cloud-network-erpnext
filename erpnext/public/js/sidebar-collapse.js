@@ -3,7 +3,7 @@
   if (window.__luxurySidebar) return;
   window.__luxurySidebar = true;
 
-  var SIDEBAR_SEL = ".standard-sidebar, .layout-side-section";
+  var SIDEBAR_SEL = ".body-sidebar-container, .standard-sidebar, .layout-side-section";
   var COLLAPSED_CLASS = "sidebar-collapsed";
   var STORAGE_KEY = "luxury-sidebar-collapsed";
 
