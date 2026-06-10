@@ -60,7 +60,7 @@
    "icon": "calendar-clock",
    "indent": 0,
    "keep_closed": 0,
-   "label": "Timesheet",
+   "label": "Timesheets",
    "link_to": "Timesheet",
    "link_type": "DocType",
    "show_arrow": 0,
