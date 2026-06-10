@@ -110,6 +110,8 @@ if [ ! -f "$SITE_DIR/site_config.json" ]; then
     bench use "$SITE_NAME"
 fi
 
+bench --site "$SITE_NAME" migrate
+
 bench build
 
 bench --site "$SITE_NAME" set-config app_name "Clothing ERP"
