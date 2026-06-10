@@ -58,7 +58,7 @@ services:
       DB_PASSWORD: erpnext
       ADMIN_PASSWORD: admin
     ports:
-      - "80:8000"
+      - "8000:8000"
     volumes:
       - sites-vol:/home/frappe/frappe-bench/sites
     depends_on:
