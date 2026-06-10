@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     const userId = document.cookie?.split('; ').find(row => row.startsWith('user_id='))?.split('=')[1]?.trim()
     const isLoggedIn = userId !== 'Guest'
-    console.log('3');
+    console.log(3);
     if (!isLoggedIn) {
       if (import.meta.env.DEV) {
         return
@@ -39,7 +39,7 @@ function App() {
             <BrowserRouter basename={import.meta.env.VITE_BASE_NAME ? `/${import.meta.env.VITE_BASE_NAME}` : ''}>
               <Routes>
                 <Route element={<Layout />}>
-                  <Route index element={<Dashboard />} />213
+                  <Route index element={<Dashboard />} />
                   <Route path="leads" element={<Leads />} />
                   <Route path="leads/:id" element={<LeadDetail />} />
                   <Route path="opportunities" element={<Opportunities />} />
