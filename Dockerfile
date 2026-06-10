@@ -15,7 +15,7 @@ FROM python:3.14-slim
 ENV DEBIAN_FRONTEND=noninteractive PYTHONUNBUFFERED=1
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
-    git curl mariadb-client libffi-dev libssl-dev build-essential libmariadb-dev pkg-config cron \
+    git curl mariadb-client libffi-dev libssl-dev build-essential libmariadb-dev pkg-config cron netcat-openbsd \
     && curl -fsSL https://deb.nodesource.com/setup_24.x | bash - \
     && apt-get install -y nodejs \
     && npm install -g yarn \
@@ -49,8 +49,13 @@ RUN ./env/bin/pip install -e apps/erpnext && \
 COPY --chown=frappe:frappe --from=crm-builder /tmp/crm apps/erpnext/erpnext/public/crm
 COPY --chown=frappe:frappe --from=crm-builder /tmp/www/crm.html apps/erpnext/erpnext/www/crm.html
 
-RUN mkdir -p /home/frappe/frappe-bench/sites/assets && \
+RUN rm -rf /home/frappe/frappe-bench/sites/assets/frappe \
+           /home/frappe/frappe-bench/sites/assets/erpnext && \
+    mkdir -p /home/frappe/frappe-bench/sites/assets && \
+    ln -sf /home/frappe/frappe-bench/apps/frappe/frappe/public /home/frappe/frappe-bench/sites/assets/frappe && \
     ln -sf /home/frappe/frappe-bench/apps/erpnext/erpnext/public /home/frappe/frappe-bench/sites/assets/erpnext
+
+RUN cd /home/frappe/frappe-bench && bench build
 
 COPY --chown=frappe:frappe <<'EOF' /entrypoint.sh
 #!/bin/bash
@@ -89,6 +94,7 @@ echo "Database ready!"
 
 SITE_DIR="sites/$SITE_NAME"
 mkdir -p "$SITE_DIR/logs"
+rm -rf sites/assets/frappe sites/assets/erpnext
 mkdir -p sites/assets
 ln -sfn /home/frappe/frappe-bench/apps/frappe/frappe/public sites/assets/frappe
 ln -sfn /home/frappe/frappe-bench/apps/erpnext/erpnext/public sites/assets/erpnext
@@ -111,8 +117,6 @@ if [ ! -f "$SITE_DIR/site_config.json" ]; then
 fi
 
 bench --site "$SITE_NAME" migrate
-
-bench build
 
 bench --site "$SITE_NAME" set-config app_name "Clothing ERP"
 bench --site "$SITE_NAME" execute frappe.client.set_value --args '["Website Settings", "Website Settings", "app_name", "Clothing ERP"]' || echo "Website Settings not ready yet — skipping"
