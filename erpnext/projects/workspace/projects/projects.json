@@ -16,12 +16,12 @@
  "icon": "project",
  "idx": 1,
  "is_hidden": 0,
- "label": "Projects",
+ "label": "projects",
  "links": [
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Projects",
+   "label": "projects",
    "link_count": 0,
    "onboard": 0,
    "type": "Card Break"
@@ -93,7 +93,7 @@
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Timesheet",
+   "label": "Timesheets",
    "link_count": 0,
    "link_to": "Timesheet",
    "link_type": "DocType",
