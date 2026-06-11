@@ -32,25 +32,27 @@ jobs:
             docker compose build --no-cache
             docker compose up -d
 
-            echo "=== Waiting for ERPNext to be ready ==="
-            for i in $(seq 1 36); do
-              if curl -sf http://localhost:8000/api/method/frappe.ping > /dev/null 2>&1; then
-                echo "ERPNext is ready!"
+            echo "=== Waiting for ERPNext container health ==="
+            for i in $(seq 1 60); do
+              STATUS=$(docker inspect erpnext-crm-erpnext-1 --format='{{.State.Health.Status}}' 2>/dev/null || echo "starting")
+              if [ "$STATUS" = "healthy" ]; then
+                echo "ERPNext is healthy!"
                 break
               fi
-              echo "Waiting... ($i/36)"
-              sleep 5
+              echo "Waiting... ($i/60) status=$STATUS"
+              sleep 10
             done
 
             echo "=== Running migrations ==="
-            docker compose exec -T erpnext bench migrate || true
+            docker compose exec -T erpnext bench migrate
+
+            echo "=== Building assets ==="
+            docker compose exec -T erpnext bench build
 
             echo "=== Clearing cache ==="
-            docker compose exec -T erpnext bench clear-cache || true
-            docker compose exec -T erpnext bench clear-website-cache || true
+            docker compose exec -T erpnext bench clear-cache
+            docker compose exec -T erpnext bench clear-website-cache
 
-            echo "=== Restart ERPNext ==="
-            docker compose restart erpnext
             echo "=== Final status ==="
             docker compose ps
 
