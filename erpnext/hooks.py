@@ -1,5 +1,5 @@
 app_name = "erpnext"
-app_title = "Jasur System"
+app_title = "JasurM System"
 app_publisher = "Frappe Technologies Pvt. Ltd."
 app_description = """ERP made simple"""
 app_icon = "fa fa-th"
