@@ -29,6 +29,7 @@ RUN printf "[client]\nskip-ssl = true\n" > /home/frappe/.my.cnf
 
 RUN bench init --frappe-branch develop --skip-redis-config-generation /home/frappe/frappe-bench
 
+RUN sed -i '/watch: bench watch/d' /home/frappe/frappe-bench/Procfile
 WORKDIR /home/frappe/frappe-bench
 
 RUN yarn add onscan.js@^1.5.2
